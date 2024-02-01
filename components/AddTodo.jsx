@@ -35,14 +35,14 @@ const AddTodo = () => {
         toast({ title: "Todo created successfully", status: "success" });
     };
     return (
-        <Box w="40%" margin={"0 auto"} display="block" mt={5}>
+        <Box w="60%" margin={"0 auto"} display="block" mt={5}>
             <Stack direction="column">
                 <Input
                     placeholder="Title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
-                <Textarea
+                <Textarea 
                     placeholder="Description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}

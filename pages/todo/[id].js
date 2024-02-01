@@ -5,7 +5,8 @@ import {
   InputGroup,
   Input,
   Button,
-  Text
+  Text,
+  Textarea
 } from "@chakra-ui/react";
 import useAuth from "../../hooks/useAuth";
 import {
@@ -49,17 +50,26 @@ const TodoItem = ({ itemData }) => {
   }
   // if our code continues execution to here, a user is logged in
   // finally return the jsx component
+
+  //work on formating for layout
   return (
     <Flex flexDir="column" maxW={800} align="center" justify="start" minH="100vh" m="auto" px={4} py={3}>
       <InputGroup>
+      <div flexDir="row">
         <Input type="text" value={inputTitle} onChange={(e) => setInputTitle(e.target.value)} placeholder="Title" />
-        <Input type="text" value={inputDescription} onChange={(e) => setInputDescription(e.target.value)} placeholder="Description" />
+        <Textarea type="text" value={inputDescription} onChange={(e) => setInputDescription(e.target.value)} placeholder="Description" /></div>
+        
         <Button
           ml={2}
           onClick={() => sendData()}
+          marginRight={1}
         >
           Update
         </Button>
+        <br></br>
+        <Button>
+        <Link href='/'>Return Home</Link>
+      </Button>
       </InputGroup>
       <Text>
         {itemData.status}
@@ -70,9 +80,7 @@ const TodoItem = ({ itemData }) => {
       <Text>
         {statusMsg}
       </Text>
-      <Button>
-        <Link href='/'>Return Home</Link>
-      </Button>
+      
     </Flex>
   );
 };
